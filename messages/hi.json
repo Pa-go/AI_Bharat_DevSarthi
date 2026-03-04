@@ -1,0 +1,88 @@
+{
+  "Header": {
+    "searchPlaceholder": "चैट, फ़ाइलें, दस्तावेज़ में खोजें...",
+    "companion": "आपका AI साथी",
+    "learner": "शिक्षार्थी",
+    "plan": "फ्री प्लान",
+    "notifications": "सूचनाएं",
+    "unread": "अपठित",
+    "markAllRead": "सभी को पढ़ा हुआ चिह्नित करें",
+    "viewAll": "सभी सूचनाएं देखें",
+    "quickSettings": "त्वरित सेटिंग्स",
+    "themeAndLanguage": "थीम और भाषा",
+    "theme": "थीम",
+    "light": "लाइट",
+    "dark": "डार्क",
+    "auto": "ऑटो",
+    "language": "भाषा",
+    "openFullSettings": "पूर्ण सेटिंग्स खोलें",
+    "accountSettings": "खाता सेटिंग्स",
+    "myAchievements": "मेरी उपलब्धियां",
+    "signOut": "साइन आउट",
+    "dayStreak": "दिन की लकीर!",
+    "keepLearning": "हर दिन सीखते रहें",
+    "projects": "प्रोजेक्ट्स",
+    "problems": "समस्याएं"
+  },
+  "Dashboard": {
+    "goodMorning": "सुप्रभात",
+    "goodAfternoon": "शुभ दोपहर",
+    "goodEvening": "शुभ संध्या",
+    "welcomeBack": "वापसी पर स्वागत है",
+    "dayStreak": "दिन की लकीर",
+    "sessions": "सत्र",
+    "focusScore": "फोकस स्कोर",
+    "weeklyGoal": "साप्ताहिक लक्ष्य",
+    "workspaceEngines": "वर्कस्पेस इंजन",
+    "launchEngine": "इंजन लॉन्च करें",
+    "initializing": "आरंभ हो रहा है",
+    "activeProjects": "सक्रिय प्रोजेक्ट्स",
+    "viewAll": "सभी देखें",
+    "knowledgeVault": "ज्ञान तिजोरी",
+    "uploadDescription": "अपने पाठ्यक्रम PDF या नोट्स अपलोड करें ताकि आपका AI साथी उन्हें समझ सके।",
+    "quickChat": "त्वरित चैट",
+    "modes": {
+      "dev": {
+        "title": "कोड और बिल्ड",
+        "desc": "AI चैट, एडिटर और नोट्स 3-पैनल व्यू में।"
+      },
+      "research": {
+        "title": "विश्लेषण और खोज",
+        "desc": "शक्तिशाली 5-पैनल लेआउट में जटिल PDF का विश्लेषण करें।"
+      },
+      "learn": {
+        "title": "सीखें और याद रखें",
+        "desc": "ट्यूटोरियल देखने और नोट्स लेने के लिए संतुलित लेआउट।"
+      }
+    }
+  },
+  "Workspace": {
+    "workspace": "वर्कस्पेस",
+    "activePanels": "सक्रिय पैनल",
+    "aiLang": "AI भाषा:",
+    "selectPanel": "शुरू करने के लिए एक पैनल चुनें",
+    "panels": {
+      "aiChat": "AI सहायक",
+      "codeEditor": "तकनीकी वर्कस्पेस",
+      "resources": "स्रोत व्यूअर",
+      "calculator": "व्हाइटबोर्ड",
+      "notes": "सक्रिय नोट्स"
+    },
+    "modes": {
+      "focus": "🎯 फोकस मोड",
+      "chat": "💬 चैट मोड",
+      "learn": "🎓 लर्निंग हब",
+      "balanced": "⚖️ संतुलित मोड",
+      "dev": "💻 डेवलपमेंट मोड",
+      "research": "🔬 अंतर्दृष्टि और अनुसंधान"
+    }
+  },
+  "AIChat": {
+    "aiTutor": "AI ट्यूटर",
+    "archive": "संग्रह",
+    "newSession": "नया सत्र",
+    "placeholder": "साथी आज आपकी कैसे मदद कर सकता है?",
+    "thinking": "साथी सोच रहा है...",
+    "askQuestion": "एक सवाल पूछें..."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "Header": {
+    "searchPlaceholder": "Search in chats, files, docs...",
+    "companion": "Your AI Companion",
+    "learner": "Learner",
+    "plan": "Free Plan",
+    "notifications": "Notifications",
+    "unread": "unread",
+    "markAllRead": "Mark all read",
+    "viewAll": "View all notifications",
+    "quickSettings": "Quick Settings",
+    "themeAndLanguage": "Theme & Language",
+    "theme": "THEME",
+    "light": "Light",
+    "dark": "Dark",
+    "auto": "Auto",
+    "language": "LANGUAGE",
+    "openFullSettings": "Open Full Settings",
+    "accountSettings": "Account Settings",
+    "myAchievements": "My Achievements",
+    "signOut": "Sign Out",
+    "dayStreak": "Day Streak!",
+    "keepLearning": "Keep learning every day",
+    "projects": "Projects",
+    "problems": "Problems"
+  },
+  "Dashboard": {
+    "goodMorning": "Good morning",
+    "goodAfternoon": "Good afternoon",
+    "goodEvening": "Good evening",
+    "welcomeBack": "Welcome back",
+    "dayStreak": "Day Streak",
+    "sessions": "Sessions",
+    "focusScore": "Focus Score",
+    "weeklyGoal": "Weekly Goal",
+    "workspaceEngines": "Workspace Engines",
+    "launchEngine": "Launch Engine",
+    "initializing": "Initializing",
+    "activeProjects": "Active Projects",
+    "viewAll": "View All",
+    "knowledgeVault": "Knowledge Vault",
+    "uploadDescription": "Upload your syllabus PDFs or notes to feed your AI Companion.",
+    "quickChat": "Quick Chat",
+    "modes": {
+      "dev": {
+        "title": "Code & Build",
+        "desc": "AI chat, editor, and notes in a 3-panel view."
+      },
+      "research": {
+        "title": "Analyze & Discover",
+        "desc": "Analyze complex PDFs in a powerful 5-panel layout."
+      },
+      "learn": {
+        "title": "Learn & Retain",
+        "desc": "Balanced layout for watching tutorials and taking notes."
+      }
+    }
+  },
+  "Workspace": {
+    "workspace": "Workspace",
+    "activePanels": "Active Panels",
+    "aiLang": "AI Lang:",
+    "selectPanel": "Select a panel to begin",
+    "panels": {
+      "aiChat": "AI Assistant",
+      "codeEditor": "Technical Workspace",
+      "resources": "Source Viewer",
+      "calculator": "Whiteboard",
+      "notes": "Active Notes"
+    },
+    "modes": {
+      "focus": "🎯 Focus Mode",
+      "chat": "💬 Chat Mode",
+      "learn": "🎓 Learning Hub",
+      "balanced": "⚖️ Balanced Mode",
+      "dev": "💻 Development Mode",
+      "research": "🔬 Insight & Research"
+    }
+  },
+  "AIChat": {
+    "aiTutor": "AI Tutor",
+    "archive": "Archive",
+    "newSession": "New Session",
+    "placeholder": "How can Sathi help you today?",
+    "thinking": "Sathi is thinking...",
+    "askQuestion": "Ask a question..."
+  }
+}
