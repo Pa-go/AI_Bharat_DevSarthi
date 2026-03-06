@@ -5,6 +5,11 @@ import { routing } from '@/i18n/routing';
 import './globals.css';
 import '../../styles/cyberpunk.css';
 
+// 🚦 FIX: Tells Next.js which languages to pre-render during build
+export function generateStaticParams() {
+  return [{ locale: 'en' }, { locale: 'hi' }, { locale: 'mr' }];
+}
+
 export default async function LocaleLayout({ children, params }) {
   // Await params to get the current locale
   const { locale } = await params;
@@ -18,13 +23,9 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body>
-        {/* This Provider is what the error "No intl context found" is looking for */}
-        <NextIntlClientProvider messages={messages} locale={locale}>
-          {children}
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    // ❌ REMOVED <html> and <body> because they are now in the root app/layout.js
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      {children}
+    </NextIntlClientProvider>
   );
 }
