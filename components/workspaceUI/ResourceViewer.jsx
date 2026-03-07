@@ -1,78 +1,123 @@
 "use client";
 
-import { useState } from "react";
-import { FileText, Upload, CheckCircle2, AlertCircle } from "lucide-react";
+import { useState, useRef } from "react";
+import { FileText, Upload, CheckCircle2, Loader2, FileUp, X } from "lucide-react";
 
 export default function ResourceViewer({ onTextExtract }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [fileName, setFileName] = useState("");
+  const [viewUrl, setViewUrl] = useState("");
+  const fileInputRef = useRef(null);
 
-  // 🏆 This mock data simulates the "Syllabus" content
-  const mockSyllabusText = `
-    CHAPTER 1: PYTHON BASICS
-    A Variable is a container (dabba) for storing data values. 
-    In Python, variables are created the moment you first assign a value to it.
-    Example: x = 5, y = "Sathi"
-    
-    Loops in Python:
-    A 'for' loop is used for iterating over a sequence.
-    A 'while' loop executes a set of statements as long as a condition is true.
-  `;
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-  const handleMockUpload = () => {
-    setIsLoaded(true);
-    // 🚀 Send the text up to the page.jsx -> CompanionAI
-    if (onTextExtract) {
-      onTextExtract(mockSyllabusText);
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setFileName(file.name);
+        setViewUrl(data.viewUrl); // 🎯 Set the S3 link for the iframe
+        setIsLoaded(true);
+        
+        // 🧠 Send text to Workspace -> CompanionAI
+        if (onTextExtract) {
+          onTextExtract(data.extractedText);
+        }
+      } else {
+        alert("Upload failed: " + data.error);
+      }
+    } catch (error) {
+      console.error("Upload Error:", error);
+      alert("Check console for Upload Error.");
+    } finally {
+      setIsUploading(false);
     }
   };
 
   return (
     <div className="h-full flex flex-col bg-[#0f172a]">
-      {/* INTERNAL HEADER (Matches Sathi style) */}
-      <div className="h-12 border-b border-white/5 px-6 flex items-center justify-between shrink-0 bg-[#0f172a]/50 backdrop-blur-md">
+      {/* HEADER */}
+      <div className="h-12 border-b border-white/5 px-6 flex items-center justify-between shrink-0 bg-[#0f172a]/50">
         <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
           <FileText className="w-3 h-3 text-indigo-400" /> SOURCE READER
         </h3>
-        <div className="flex items-center gap-2 text-[9px] text-slate-500 font-bold uppercase tracking-tighter">
-           <div className={`h-1.5 w-1.5 rounded-full ${isLoaded ? 'bg-emerald-500' : 'bg-slate-600'}`} />
-           {isLoaded ? "SYLLABUS LOADED" : "NO SOURCE"}
-        </div>
+        {isLoaded && (
+          <button 
+            onClick={() => setIsLoaded(false)} 
+            className="text-[9px] font-bold text-red-400 hover:text-red-300 uppercase flex items-center gap-1"
+          >
+            <X size={12} /> Remove
+          </button>
+        )}
       </div>
 
-      {/* VIEWPORT */}
-      <div className="flex-1 p-6 flex flex-col items-center justify-center text-center">
+      {/* CONTENT AREA */}
+      <div className="flex-1 overflow-hidden relative">
         {!isLoaded ? (
-          <div className="max-w-xs space-y-4">
-            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto border border-white/10 shadow-xl">
-              <Upload className="text-slate-500" size={24} />
-            </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-200">No Syllabus Detected</h4>
-              <p className="text-[11px] text-slate-500 mt-1">Upload a PDF or use the demo syllabus to start the context-aware lab.</p>
-            </div>
-            <button 
-              onClick={handleMockUpload}
-              className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-[11px] font-black shadow-lg transition-all active:scale-95"
+          <div className="h-full flex flex-col items-center justify-center p-8 text-center">
+            <input 
+              type="file" 
+              ref={fileInputRef} 
+              onChange={handleFileUpload} 
+              accept=".pdf,.txt" 
+              className="hidden" 
+            />
+            
+            <div 
+              onClick={() => fileInputRef.current.click()}
+              className="w-20 h-20 bg-white/5 rounded-3xl flex items-center justify-center mb-6 border border-white/10 hover:border-indigo-500/50 cursor-pointer transition-all group"
             >
-              LOAD DEMO SYLLABUS
+              {isUploading ? (
+                <Loader2 className="text-indigo-500 animate-spin" size={32} />
+              ) : (
+                <Upload className="text-slate-500 group-hover:text-indigo-400" size={32} />
+              )}
+            </div>
+
+            <h4 className="text-sm font-bold text-slate-200">
+              {isUploading ? "Sathi is indexing..." : "Upload MU Syllabus"}
+            </h4>
+            <p className="text-[11px] text-slate-500 mt-2 mb-6 max-w-[200px]">
+              PDF text will be sent to AI for tutoring context.
+            </p>
+
+            <button 
+              onClick={() => fileInputRef.current.click()}
+              disabled={isUploading}
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-[11px] font-black flex items-center gap-2 transition-all"
+            >
+              {isUploading ? <Loader2 size={14} className="animate-spin" /> : <FileUp size={14} />}
+              {isUploading ? "PROCESSING..." : "SELECT FILE"}
             </button>
           </div>
         ) : (
-          <div className="w-full h-full bg-[#020617] rounded-2xl border border-white/5 p-8 text-left overflow-y-auto custom-scrollbar">
-            <div className="flex items-center gap-2 mb-6 text-emerald-500">
-               <CheckCircle2 size={16} />
-               <span className="text-[10px] font-black uppercase tracking-widest">Active Syllabus: Python_Basics.pdf</span>
-            </div>
+          <div className="h-full w-full flex flex-col">
+            {/* 🎯 THE PDF EMBED */}
+            <iframe 
+              src={`${viewUrl}#toolbar=0`} 
+              className="w-full h-full bg-white border-none"
+              title="PDF Viewer"
+            />
             
-            <pre className="text-[12px] text-slate-400 leading-relaxed font-mono whitespace-pre-wrap">
-              {mockSyllabusText}
-            </pre>
-            
-            <div className="mt-8 p-4 rounded-xl border border-indigo-500/20 bg-indigo-500/5 flex gap-3">
-               <AlertCircle size={18} className="text-indigo-400 shrink-0" />
-               <p className="text-[10px] text-indigo-300 italic leading-relaxed">
-                 Sathi is now watching this content. You can ask questions about variables or loops in the AI Companion.
-               </p>
+            {/* FLOATING STATUS */}
+            <div className="absolute bottom-4 left-4 right-4 p-3 bg-indigo-600/90 backdrop-blur-md rounded-xl border border-white/10 flex items-center gap-3 shadow-2xl">
+               <CheckCircle2 size={16} className="text-white" />
+               <div className="flex-1">
+                  <p className="text-[10px] font-black text-white uppercase truncate">{fileName}</p>
+                  <p className="text-[8px] text-indigo-100 font-bold uppercase tracking-tighter">AI Analysis Active</p>
+               </div>
             </div>
           </div>
         )}

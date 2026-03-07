@@ -1,21 +1,19 @@
 import { BedrockRuntimeClient, InvokeModelCommand } from "@aws-sdk/client-bedrock-runtime";
 import { NextResponse } from "next/server";
 
-// 🏆 Initialize client outside the handler for better performance
 const client = new BedrockRuntimeClient({
-  region: "us-east-1", 
+  region: process.env.SATHI_AWS_REGION || "us-east-1", 
   credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.SATHI_AWS_ACCESS_KEY_ID?.trim() || "",
+    secretAccessKey: process.env.SATHI_AWS_SECRET_ACCESS_KEY?.trim() || "",
   },
 });
 
-// ✅ MUST BE A NAMED EXPORT 'POST' - NO 'export default'
 export async function POST(req) {
   try {
-    const { messages, context } = await req.json();
+    const { messages, context, mode, lang = "en" } = await req.json();
 
-    // Clean sequence for Bedrock: User -> Assistant -> User
+    // 1. Clean roles for Bedrock compatibility
     let formattedMessages = messages
       .map(m => ({
         role: m.role === 'assistant' ? 'assistant' : 'user',
@@ -28,14 +26,27 @@ export async function POST(req) {
       return m.role !== formattedMessages[i - 1].role;
     });
 
+    // 🎯 DYNAMIC LANGUAGE PROTOCOL (Supports 22+ Languages)
+  const systemText = `
+      You are DevSathi, the flexible AI Tutor for Mumbai University. 
+      
+      ⚠️ CRITICAL LANGUAGE RULE:
+      1. SENSE & SWITCH: Respond in the language of the User's VERY LAST message. 
+      2. If the user writes in English, reply 100% in English. If Gujarati, reply in Gujarati.
+      
+      🚀 TERMINAL & CODE EXECUTION RULES:
+      - DEFAULT: Always provide Python code as the primary example because our integrated 'CodeLab' terminal is a specialized Python 3.10 runtime.
+      - MULTI-LANG: If the user explicitly asks for C++, Java, or SQL, provide the code, BUT you MUST add this brief disclaimer at the end: 
+        "Note: My built-in terminal runs Python logic. For ${mode === 'code' ? 'this C++/Java code' : 'running this'}, please use an external compiler, but you can still 'INSERT' it into your editor to save your work."
+      - TECHNICAL SPECS: Mode: ${mode}, Context: ${context || "Global Engineering Mode"}.
+      
+      Keep technical terms in English brackets, but the conversation MUST follow the user's current choice.
+    `;
+
     const payload = {
-      inferenceConfig: { 
-        max_new_tokens: 1000, 
-        temperature: 0.2,
-        top_p: 0.9
-      },
+      inferenceConfig: { max_new_tokens: 1000, temperature: 0.3, top_p: 0.9 },
       messages: finalMessages,
-      system: [{ text: `You are DevSathi, a Hinglish academic tutor. Context: ${context || "General"}` }]
+      system: [{ text: systemText }]
     };
 
     const command = new InvokeModelCommand({
@@ -47,16 +58,12 @@ export async function POST(req) {
 
     const response = await client.send(command);
     const result = JSON.parse(new TextDecoder().decode(response.body));
-    
     const responseText = result.output.message.content[0].text;
     
     return NextResponse.json({ text: responseText });
 
   } catch (error) {
-    console.error("🚨 BEDROCK CRITICAL ERROR:", error);
-    return NextResponse.json({ 
-      error: "Bedrock Config Failed", 
-      details: error.message 
-    }, { status: 500 });
+    console.error("BEDROCK ERROR:", error);
+    return NextResponse.json({ error: "Bedrock Connection Failed" }, { status: 500 });
   }
 }
