@@ -13,13 +13,14 @@ import {
 } from "lucide-react";
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   TRANSLATIONS DICTIONARY (Updated with 22+ Languages & 3-Panel Story)
+   TRANSLATIONS DICTIONARY (Updated with Impact Pillars & 22+ Lng Logic)
    ═══════════════════════════════════════════════════════════════════════════ */
 const translations = {
   en: {
     navHome: "Home", navFeatures: "Tech Stack", navVault: "The Vault", navPricing: "Cost Strategy", navAbout: "About",
+    heroTag: "BHARAT'S VERNACULAR AI MISSION",
     heroTitle: "Empowering Bharat's Students,",
-    heroTitleGrad: "in 22+ Languages.",
+    heroTitleGrad: "in Your Mother Tongue.",
     heroSub: "The all-in-one vernacular workspace powered by Amazon Bedrock. Optimized for Mumbai University students.",
     getStarted: "Get Started (Demo Access)", signIn: "Sign In", 
     journeyTitle: "The AWS Journey",
@@ -29,7 +30,13 @@ const translations = {
     vaultTitle: "The Vault: Academic RAG",
     vaultDesc: "Powered by Amazon S3 and Bedrock, the Vault turns static syllabus PDFs into interactive personal tutors. Real-time tutoring that understands your mother tongue.",
     aboutTitle: "Our Mission for Bharat",
-    aboutDesc: "Democratizing technical education by combining AWS Generative AI with regional language logic for every student in India.",
+    aboutDesc: "DevSathi bridges the digital divide for students across Bharat. By combining AWS Generative AI with native regional language logic, we are democratizing technical education for every student.",
+    impact1Title: "Bridging the Vernacular Gap",
+    impact1Desc: "Converting English-heavy technical curriculum into native logic for better conceptual clarity and faster learning.",
+    impact2Title: "Tier-2/3 Empowerment",
+    impact2Desc: "Bringing Mumbai-standard AI tutoring to students who lack access to expensive coaching or high-end resources.",
+    impact3Title: "NEP 2020 Alignment",
+    impact3Desc: "Built to support the government's vision of technical education in regional languages through scalable AI.",
     pricingTitle: "Zero-Entry Strategy",
     pricingSub: "AWS-First Implementation for Maximum Cost Efficiency.",
     footerTag: "Empowering the next generation of IT professionals in Bharat.",
@@ -37,16 +44,23 @@ const translations = {
   },
   mr: {
     navHome: "मुख्यपृष्ठ", navFeatures: "टेक स्टॅक", navVault: "व्हॉल्ट", navPricing: "किंमत धोरण", navAbout: "बद्दल",
+    heroTag: "भारताचे प्रादेशिक AI अभियान",
     heroTitle: "भारतातील विद्यार्थ्यांना सक्षम करणे,",
-    heroTitleGrad: "२२+ भाषांमध्ये.",
+    heroTitleGrad: "तुमच्या मातृभाषेत.",
     heroSub: "Amazon Bedrock द्वारे समर्थित पहिले प्रादेशिक वर्कस्पेस. मुंबई विद्यापीठाच्या विद्यार्थ्यांसाठी विशेषतः डिझाइन केलेले.",
     getStarted: "सुरुवात करा (डेमो)", signIn: "प्रवेश करा", 
     adaptiveTitle: "अडॅप्टिव्ह ३-पॅनेल मास्टरी",
-    adaptiveDesc: "टॅब बदलणे थांबवा. आमचे ३-पॅनेल वातावरण—Context, Reasoning, आणि Vault—भाषेचा अडथळा दूर करते. मराठी, हिंदी आणि २२+ भारतीय भाषांमध्ये मार्गदर्शन मिळवा.",
+    adaptiveDesc: "टॅब बदलणे थांबवा. आमचे ३-पॅनेल वातावरण भाषेचा अडथळा दूर करते. मराठी, हिंदी आणि २२+ भारतीय भाषांमध्ये मार्गदर्शन मिळवा.",
     vaultTitle: "व्हॉल्ट: शैक्षणिक RAG",
     vaultDesc: "S3 आणि Bedrock द्वारे समर्थित, हा व्हॉल्ट तुमच्या सिलॅबसला एका वैयक्तिक ट्यूटरमध्ये रूपांतरित करतो जो तुमच्या भाषेत बोलतो.",
     aboutTitle: "भारतासाठी आमचे ध्येय",
     aboutDesc: "प्रादेशिक भाषा समर्थनासह AWS GenAI ला जोडून, आम्ही भारतातील प्रत्येक विद्यार्थ्यासाठी तांत्रिक शिक्षण सुलभ करत आहोत.",
+    impact1Title: "प्रादेशिक भाषेतील शिक्षण",
+    impact1Desc: "इंग्रजी तांत्रिक अभ्यासक्रम स्थानिक भाषेत समजून घेण्यास मदत करणे.",
+    impact2Title: "ग्रामीण सक्षमीकरण",
+    impact2Desc: "दुर्गम भागातील विद्यार्थ्यांना जागतिक दर्जाचे AI मार्गदर्शन उपलब्ध करून देणे.",
+    impact3Title: "NEP २०२० सुसंगतता",
+    impact3Desc: "प्रादेशिक भाषेतून तांत्रिक शिक्षण देण्याच्या सरकारच्या व्हिजनला पाठिंबा देणे.",
     pricingTitle: "झिरो-एंट्री स्ट्रॅटेजी",
     pricingSub: "जास्तीत जास्त खर्च कार्यक्षमतेसाठी AWS-First अंमलबजावणी.",
     footerTag: "भारतातील आयटी व्यावसायिकांच्या पुढच्या पिढीला सक्षम करणे.",
@@ -54,16 +68,23 @@ const translations = {
   },
   hi: {
     navHome: "होम", navFeatures: "टेक स्टैक", navVault: "वॉल्ट", navPricing: "लागत रणनीति", navAbout: "परिचय",
+    heroTag: "भारत का क्षेत्रीय AI मिशन",
     heroTitle: "भारत के छात्रों को सशक्त बनाना,",
-    heroTitleGrad: "22+ भाषाओं में।",
+    heroTitleGrad: "अपनी मातृभाषा में।",
     heroSub: "Amazon Bedrock द्वारा संचालित ऑल-इन-वन क्षेत्रीय वर्कस्पेस। मुंबई विश्वविद्यालय के छात्रों के लिए विशेष रूप से निर्मित।",
     getStarted: "शुरू करें (डेमो)", signIn: "साइन इन करें", 
     adaptiveTitle: "अडॅप्टिव्ह 3-पैनल मास्टरी",
-    adaptiveDesc: "टैब बदलना बंद करें। हमारा 3-पैनल वातावरण—Context, Reasoning, और Vault—भाषा की बाधा को तोड़ता है। मराठी, हिंदी और 22+ भारतीय भाषाओं में ट्यूशन प्राप्त करें।",
+    adaptiveDesc: "टैब बदलना बंद करें। हमारा 3-पैनल वातावरण भाषा की बाधा को तोड़ता है। मराठी, हिंदी और 22+ भारतीय भाषाओं में ट्यूशन प्राप्त करें।",
     vaultTitle: "वॉल्ट: शैक्षणिक RAG",
     vaultDesc: "S3 और Bedrock द्वारा संचालित, यह वॉल्ट आपके सिलेबस को एक व्यक्तिगत ट्यूटर में बदल देता है जो आपकी अपनी भाषा समझता है।",
     aboutTitle: "भारत के लिए हमारा लक्ष्य",
     aboutDesc: "क्षेत्रीय भाषा समर्थन के साथ AWS GenAI को जोड़कर, हम भारत के हर छात्र के लिए तकनीकी शिक्षा का लोकतंत्रीकरण कर रहे हैं।",
+    impact1Title: "क्षेत्रीय भाषा सेतु",
+    impact1Desc: "कठिन अंग्रेजी तकनीकी पाठ्यक्रम को सरल क्षेत्रीय भाषा में परिवर्तित करना।",
+    impact2Title: "छात्र सशक्तिकरण",
+    impact2Desc: "Tier-2 और Tier-3 शहरों के छात्रों को विश्व स्तरीय AI ट्यूशन प्रदान करना।",
+    impact3Title: "NEP 2020 का समर्थन",
+    impact3Desc: "क्षेत्रीय भाषाओं में तकनीकी शिक्षा को बढ़ावा देने की सरकारी पहल का समर्थन करना।",
     pricingTitle: "जीरो-एंट्री रणनीति",
     pricingSub: "अधिकतम लागत दक्षता के लिए AWS-First कार्यान्वयन।",
     footerTag: "भारत के आईटी पेशेवरों की अगली पीढ़ी को सशक्त बनाना।",
@@ -139,10 +160,16 @@ function Header({ t, locale, isDarkMode, setIsDarkMode }) {
         <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
           <Globe size={16} style={{ position: "absolute", left: 10, color: C.blue }} />
           <select value={locale} onChange={handleLangChange} style={{ background: isDarkMode ? "#1e293b" : "#f1f5f9", color: "inherit", border: "none", padding: "6px 12px 6px 34px", borderRadius: "8px", fontSize: "13px", fontWeight: "600", appearance: "none", cursor: "pointer" }}>
-            <option value="en">EN</option><option value="hi">हि</option><option value="mr">मरा</option>
+            <option value="en">English</option>
+            <option value="hi">हिंदी (Hindi)</option>
+            <option value="mr">मराठी (Marathi)</option>
+            <option value="en">Hinglish / 22+ AI</option>
           </select>
         </div>
-        <button onClick={() => router.push(`/${locale}/signup`)} className="ds-btn">
+        <button 
+          onClick={() => alert("Registrations are limited to MU Verified Pilot students. Please use 'Demo Access' on the Homepage to explore!")} 
+          className="ds-btn"
+        >
           {t.signIn} <ArrowRight size={16} /> 
         </button>
       </div>
@@ -177,7 +204,7 @@ export default function HomePage() {
         {/* 1. HERO SECTION */}
         <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "140px 24px 80px" }}>
           <div style={{ textAlign: "center", maxWidth: 1100 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", background: C.gradSoft, borderRadius: 99, color: C.blue, fontSize: 12, fontWeight: 700, marginBottom: 24 }}><Sparkles size={14} /> MU HACKATHON 2026</div>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 16px", background: C.gradSoft, borderRadius: 99, color: C.blue, fontSize: 12, fontWeight: 700, marginBottom: 24 }}><Sparkles size={14} /> {t.heroTag}</div>
             <h1 style={{ fontSize: "clamp(44px, 8vw, 76px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 24 }}>{t.heroTitle} <br /><span style={{ background: C.grad, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>{t.heroTitleGrad}</span></h1>
             <p style={{ fontSize: 20, opacity: 0.7, maxWidth: 650, margin: "0 auto 48px" }}>{t.heroSub}</p>
             
@@ -201,7 +228,6 @@ export default function HomePage() {
               {t.getStarted} <ChevronRight size={22} />
             </button>
             
-            {/* FEATURE HIGHLIGHT: 3-PANEL */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 60, alignItems: "center", textAlign: "left", background: isDarkMode ? "#0f172a" : "#f8fafc", padding: 40, borderRadius: 32, border: `1px solid ${C.border}` }}>
                <div style={{ position: "relative", borderRadius: 20, overflow: "hidden", border: `1px solid ${C.border}`, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}>
                   <div style={{ height: 300, background: C.bg0, display: "flex", padding: 10, gap: 10 }}>
@@ -224,7 +250,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 2. THE AWS JOURNEY (UPDATED) */}
+        {/* 2. THE AWS JOURNEY */}
         <section id="features" style={{ padding: "100px 24px", background: isDarkMode ? C.bg1 : "#f1f5f9" }}>
           <div style={{ maxWidth: 1080, margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: 64 }}><h2 style={{ fontSize: 44, fontWeight: 900 }}>{t.journeyTitle}</h2><p style={{ fontSize: 18, opacity: 0.6 }}>{t.journeySub}</p></div>
@@ -267,7 +293,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. COST STRATEGY (PDF UPDATED) */}
+        {/* 4. COST STRATEGY */}
         <section id="pricing" style={{ padding: "100px 24px", background: isDarkMode ? C.bg1 : "#f8fafc" }}>
           <div style={{ maxWidth: 1080, margin: "0 auto" }}>
              <div style={{ textAlign: "center", marginBottom: 64 }}><h2 style={{ fontSize: 44, fontWeight: 900 }}>{t.pricingTitle}</h2><p style={{ opacity: 0.6 }}>{t.pricingSub}</p></div>
@@ -289,12 +315,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. MISSION */}
+        {/* 5. MISSION & IMPACT PILLARS */}
         <section id="about" style={{ padding: "120px 24px" }}>
-           <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
+           <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
               <div style={{ width: 64, height: 64, background: C.gradSoft, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 32px" }}><Target size={32} color={C.blue} /></div>
               <h2 style={{ fontSize: 40, fontWeight: 900, marginBottom: 24 }}>{t.aboutTitle}</h2>
-              <p style={{ fontSize: 20, opacity: 0.7, lineHeight: 1.8, marginBottom: 48 }}>{t.aboutDesc}</p>
+              <p style={{ fontSize: 20, opacity: 0.7, lineHeight: 1.8, marginBottom: 60, maxWidth: 800, margin: "0 auto 80px" }}>{t.aboutDesc}</p>
+              
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 40, textAlign: "left" }}>
+                 {[
+                   { title: t.impact1Title, desc: t.impact1Desc, icon: <Languages size={24} color={C.blue}/> },
+                   { title: t.impact2Title, desc: t.impact2Desc, icon: <Rocket size={24} color={C.purple}/> },
+                   { title: t.impact3Title, desc: t.impact3Desc, icon: <ShieldCheck size={24} color="#10b981"/> }
+                 ].map((impact, idx) => (
+                    <div key={idx} style={{ padding: 32, background: isDarkMode ? C.bg1 : "#f8fafc", borderRadius: 24, border: `1px solid ${C.border}` }}>
+                       <div style={{ marginBottom: 20 }}>{impact.icon}</div>
+                       <h4 style={{ fontSize: 20, fontWeight: 800, marginBottom: 12 }}>{impact.title}</h4>
+                       <p style={{ fontSize: 15, opacity: 0.6, lineHeight: 1.6 }}>{impact.desc}</p>
+                    </div>
+                 ))}
+              </div>
            </div>
         </section>
 
@@ -314,7 +354,6 @@ export default function HomePage() {
                 <li><a href="https://github.com/Pa-go/AI_Bharat_DevSarthi.git" target="_blank" className="nav-link" style={{opacity:1, display:"flex", alignItems:"center", gap:10}} rel="noreferrer"><Github size={18}/> GitHub Repository</a></li>
                 <li><a href="#" className="nav-link" style={{opacity:1, display:"flex", alignItems:"center", gap:10}}><BookOpen size={18}/> {t.techDocs}</a></li>
                 <li><a href="#" className="nav-link" style={{opacity:1, display:"flex", alignItems:"center", gap:10}}><Video size={18}/> {t.demoVideo}</a></li>
-                {/* 🎯 Added AWS Architecture placeholder */}
                 <li><a href="#" className="nav-link" style={{opacity:1, display:"flex", alignItems:"center", gap:10}}><Map size={18}/> {t.architecture}</a></li>
               </ul>
             </div>
