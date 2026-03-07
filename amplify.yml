@@ -5,12 +5,11 @@ applications:
       phases:
         preBuild:
           commands:
-            - export NODE_OPTIONS=--max-old-space-size=4096
-            - npm ci
+            - npm install
         build:
           commands:
             - export NODE_OPTIONS=--max-old-space-size=4096
-            echo \"__NEXT_PRIVATE_PREBUNDLED_REACT=next\" >> .env.production
+            - echo "NEXT_PRIVATE_PREBUNDLE=1" >> .env
             - npm run build
       artifacts:
         baseDirectory: .next
@@ -19,4 +18,3 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-          - .next/cache/**/*
