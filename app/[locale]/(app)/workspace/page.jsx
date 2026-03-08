@@ -21,7 +21,7 @@ const SathiCodeLab = dynamic(() => import("@/components/workspaceUI/CodeLab"), {
 
 import CompanionAI from "@/components/workspaceUI/CompanionAI";
 import ResourceViewer from "@/components/workspaceUI/ResourceViewer";
-import ProfileModal from "@/app/[locale]/(app)/profile/profileModal"; 
+import ProfileModal from "@/app/[locale]/(app)/profile/ProfileModal"; 
 
 export default function WorkspacePage() {
   const router = useRouter();
